@@ -18,7 +18,7 @@ class AccountMove(models.Model):
         return res
 
 
-    @api.onchange('file_reference')
+    @api.onchange('file_reference', 'invoice_line_ids')
     def _onchange_file_reference(self):
         for rec in self:
             for line in rec.invoice_line_ids:
